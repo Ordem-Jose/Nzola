@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Nzola 🌿 | Turismo Sustentável</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 Plataforma Nzola</h1>
+        <h2>Turismo Sustentável e Monitoramento Ambiental</h2>
+        <form action="/recomendar" method="post">
+            <label>As tuas preferências (ex: ecoturismo, natureza, praia):</label>
+            <input type="text" name="preferencias" required>
+
+            <label>Impacto ambiental máximo permitido (0 - 5):</label>
+            <input type="number" step="0.1" name="max_impacto" value="3.0">
+
+            <button type="submit">Obter Recomendações</button>
+        </form>
+    </div>
+</body>
+</html>

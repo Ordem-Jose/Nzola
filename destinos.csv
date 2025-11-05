@@ -1,0 +1,6 @@
+ID_destino,Nome,Provincia,Tipo_Ecosistema,Custo_Medio,Impacto_Ambiental,Latitude,Longitude,Visitantes_Anuais,Tags
+1,Parque Kissama,Luanda,savanna,50,2.5,-9.4389,13.0763,50000,"natureza, safari, ecoturismo"
+2,Miradouro da Lua,Luanda,deserto,10,1.0,-9.4012,13.1652,40000,"paisagem, fotografia, cultural"
+3,Reserva de Cangandala,Malanje,floresta,75,4.0,-9.8001,16.7004,25000,"fauna, floresta, ecoturismo"
+4,Praia do Mussulo,Luanda,costeiro,40,1.5,-8.9767,13.0509,60000,"praia, relaxamento, aquático"
+5,Centro Histórico de Mbanza Kongo,Zaire,urbano,25,0.5,-6.2664,14.24,30000,"património, história, cultural"

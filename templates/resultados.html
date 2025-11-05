@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Recomendações Nzola</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌿 Destinos Recomendados</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Destino</th>
+                    <th>Província</th>
+                    <th>Ecossistema</th>
+                    <th>Custo Médio</th>
+                    <th>Impacto Ambiental</th>
+                    <th>Similaridade</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in resultados %}
+                <tr>
+                    <td>{{ r.Destino }}</td>
+                    <td>{{ r.Província }}</td>
+                    <td>{{ r.Ecossistema }}</td>
+                    <td>{{ r.Custo_Médio }}</td>
+                    <td>{{ r.Impacto_Ambiental }}</td>
+                    <td>{{ "%.2f"|format(r.Similaridade) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/">🔙 Voltar</a>
+    </div>
+</body>
+</html>
