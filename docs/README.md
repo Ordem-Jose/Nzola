@@ -1,76 +1,144 @@
-﻿# 🌍 Projeto Nzola — Plataforma de Turismo Sustentável
+﻿# 🌍 Nzola — Plataforma Inteligente de Turismo Sustentável
 
 ## 🧠 Visão Geral
-O **Nzola** é uma plataforma de **turismo sustentável** que utiliza **inteligência artificial e engenharia de dados** para promover práticas responsáveis no setor turístico.  
-O sistema identifica **padrões de sustentabilidade**, **recomenda destinos ecológicos** e **monitora impactos ambientais** com base em dados reais.
 
----
+O **Nzola** é uma plataforma web interativa que utiliza **Inteligência Artificial, Machine Learning e Geolocalização** para recomendar **destinos turísticos sustentáveis** com base em dados reais e preferências do usuário.
 
-## 🚀 Tecnologias Utilizadas
+O sistema foi desenvolvido no âmbito do **Capstone Final do Bootcamp de Engenharia de Dados e IA**, com foco em **turismo responsável e sustentável**.
 
-### 🔹 Backend e ETL
-- **Python 3.10+**
-- **Pandas**, **NumPy** — limpeza e transformação de dados
-- **Geopandas**, **Folium** — mapeamento e análise geoespacial
-- **Scikit-learn** — modelos de classificação e predição
-- **Jupyter/Google Colab** — ambiente de desenvolvimento
-- **SQLite / CSV / JSON** — armazenamento e ingestão de dados
 
-### 🔹 Frontend (Apresentação Web)
-- **Streamlit** — visualização interativa dos resultados
-- **Plotly / Folium** — gráficos e mapas dinâmicos
-
----
-
-## ⚙️ Estrutura do Projeto
-
+## 🚀 Arquitetura Geral
 Nzola/
-│
-├── data/ # Dados brutos e tratados
-├── notebooks/ # ETL e análises exploratórias
-├── models/ # Modelos treinados (ML)
-├── app/ # Código da interface Streamlit
-├── requirements.txt # Dependências do projeto
-└── README.md # Documentação
+├── __pycache__/
+├── app.py
+├── recomendador.py
+├── pytorch_recomendador.py
+├── csvrapido.py
+├── csvs/
+│   ├── destinos.csv
+│   ├── perfil_turista.csv
+│   └── feedback.csv
+├── templates/
+│   ├── index.html
+│   └── resultados.html
+├── static/
+│   └── style.css
+└── docs/
+    ├── README.md
+    ├── vision.md
+    ├── Proposta de idea.md
+    ├── Folha tecnica.md
+    └── destinos.csv
+```Nzola/
+├── __pycache__/
+├── app.py
+├── recomendador.py
+├── pytorch_recomendador.py
+├── csvrapido.py
+├── csvs/
+│   ├── destinos.csv
+│   ├── perfil_turista.csv
+│   └── feedback.csv
+├── templates/
+│   ├── index.html
+│   └── resultados.html
+├── static/
+│   └── style.css
+└── docs/
+    ├── README.md
+    ├── vision.md
+    ├── Proposta de idea.md
+    ├── Folha tecnica.md
+    └── destinos.csv
+|
+ Funcionalidades Principais
+
+- 🌎 **Geolocalização automática:** o navegador obtém as coordenadas do usuário.
+- 🤖 **Recomendação inteligente:** sugestões de destinos baseadas em preferências, localização e impacto ambiental.
+- 🧩 **Sistema de “segunda opinião” (PyTorch):** modelo neural que reavalia as recomendações e fornece uma escolha mais personalizada.
+- 📊 **Análise de dados:** os destinos são avaliados quanto a custo, ecossistema, impacto ambiental e acessibilidade.
+- 🖥 **Interface responsiva:** página dinâmica com HTML, CSS e JavaScript, comunicação via AJAX com o Flask.
 
 ---
 
-## 🧩 Pipeline ETL e IA
-1. **Extração:** Coleta de dados reais sobre turismo, clima, transporte e sustentabilidade.  
-2. **Transformação:** Limpeza, normalização e junção das fontes.  
-3. **Análise e ML:** Modelos preditivos classificam destinos quanto ao nível de sustentabilidade.  
-4. **Visualização:** Painéis interativos e mapas com insights e recomendações.  
+## 🖥 1. Backend
+
+### 🔹 Tecnologias
+- **Python + Flask** — Framework web principal.
+- **pandas** — Manipulação dos dados (DataFrames com destinos, custos, tags, etc).
+- **scikit-learn (sklearn)** — Cálculo de similaridade (TF-IDF e cosine similarity).
+- **PyTorch** — Implementação da “segunda camada” (modelo neural MLP).
+- **geopy / haversine** — Cálculo de distâncias geográficas.
+- **json** — Troca de dados entre backend e frontend.
+
+### 🔹 Principais rotas
+| Rota | Função |
+|------|--------|
+| `/` | Página inicial (formulário e geolocalização) |
+| `/resultados` | Mostra recomendações iniciais (sklearn) |
+| `/segunda_opiniao` | Modelo PyTorch gera a recomendação final |
 
 ---
 
-## 🧠 Objetivo Geral
-Promover um ecossistema turístico mais sustentável, apoiando decisões baseadas em dados para reduzir impactos ambientais e valorizar práticas ecológicas.
+## 🌐 2. Frontend
+
+### 🔹 Tecnologias
+- **HTML5 + CSS3 + JavaScript** — Interface responsiva e interativa.
+- **Jinja2** — Motor de templates do Flask (renderização dinâmica).
+- **AJAX (fetch API)** — Envia e recebe dados sem recarregar a página.
+- **Session Storage** — Guarda latitude e longitude localmente no navegador.
 
 ---
 
-## 🌱 Resultados Esperados
-- Identificação de destinos mais sustentáveis;
-- Recomendação personalizada para viajantes conscientes;
-- Apoio à formulação de políticas públicas e certificações verdes.
+## 🗺 3. Geolocalização
+
+- Implementada com **JavaScript (navigator.geolocation)**.
+- Flask recebe as coordenadas do usuário e calcula distâncias reais até cada destino.
+- Distâncias são normalizadas e usadas como variável de entrada no modelo de recomendação.
 
 ---
 
-## 📦 Como Executar
+## 🤖 4. Inteligência Artificial / Machine Learning
+
+### 🔹 Primeira camada — Recomendador Base
+- Baseado em **TF-IDF** e **similaridade de cosseno** (scikit-learn).  
+- Identifica destinos similares conforme tags e preferências do usuário.  
+- Retorna uma lista inicial classificada por compatibilidade e proximidade.
+
+### 🔹 Segunda camada — Módulo PyTorch
+- Modelo de rede neural (MLP) leve, com pesos simulando uma “segunda opinião”.  
+- Recebe as top recomendações e ajusta com base em dados contextuais.  
+- Permite ao usuário solicitar uma análise mais personalizada ("Ajude-me a decidir").  
+
+---
+
+## 🗃 5. Dados
+
+- Estruturados em **DataFrames pandas**.
+- Atributos:
+  - Nome do destino
+  - Província
+  - Tipo de ecossistema (floresta, praia, montanha, urbano)
+  - Custo médio
+  - Impacto ambiental
+  - Número de visitantes anuais
+  - Tags (trilha, praia, cultural, safari, etc.)
+- Armazenados em formato **CSV** e carregados dinamicamente pelo Flask.
+
+---
+
+## ⚙️ 6. Ambiente de Desenvolvimento
+
+- **Python 3.9+**
+- **VSCode** como IDE principal.
+- Execução local no **Windows 11**
+- Dependências listadas em `requirements.txt`
+
+---
+
+## 📦 Instalação e Execução
 
 ```bash
-# 1. Clonar o repositório
+# Clonar o repositório
 git clone https://github.com/<usuario>/nzola.git
 cd nzola
-
-# 2. Instalar dependências
-pip install -r requirements.txt
-
-# 3. Executar a aplicação
-streamlit run app/main.py
-
-
----
-
-##  Equipa
-Celmira Leontina Longuia • Alexandre Ariel de Lemos • Edmundo Dombo Xavier • Gomes Francisco Mateus • Jorge Início • Meclanio Tomás Ramos • Ordem José Valentim Afonso • José Lopes de Andrade Santos • António Caetano Matoso Jacob
-
