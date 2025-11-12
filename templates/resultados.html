@@ -1,39 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <title>Recomendações Nzola</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>🌿 Destinos Recomendados</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>Destino</th>
-                    <th>Província</th>
-                    <th>Ecossistema</th>
-                    <th>Custo Médio</th>
-                    <th>Impacto Ambiental</th>
-                    <th>Similaridade</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for r in resultados %}
-                <tr>
-                    <td>{{ r.Destino }}</td>
-                    <td>{{ r.Província }}</td>
-                    <td>{{ r.Ecossistema }}</td>
-                    <td>{{ r.Custo_Médio }}</td>
-                    <td>{{ r.Impacto_Ambiental }}</td>
-                    <td>{{ "%.2f"|format(r.Similaridade) }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eaf4ea; margin: 0; padding: 0; }
+        h1, h2 { text-align: center; color: #2d6a4f; }
+        table { width: 90%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+        th { background-color: #f4f4f4; }
+        .perto { background-color: #d4edda; }
+        .medio { background-color: #fff3cd; }
+        .longe { background-color: #f8d7da; }
+        .tag { display: inline-block; background-color: #4CAF50; color: white; padding: 3px 8px; margin: 2px; border-radius: 12px; font-size: 0.9em; }
 
-        <a href="/">🔙 Voltar</a>
+        .segunda-opiniao { width: 90%; margin: 20px auto; padding: 15px; background-color: #fff; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .categorias { display: flex; justify-content: center; flex-wrap: wrap; margin-bottom: 15px; }
+        .categorias button { margin: 5px; padding: 8px 15px; border: none; border-radius: 5px; background-color: #2d6a4f; color: white; cursor: pointer; transition: background-color 0.3s; }
+        .categorias button:hover { background-color: #1b4332; }
+
+        .card { padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; background-color: #f9f9f9; display: flex; justify-content: space-between; align-items: center; }
+        .card:hover { background-color: #e0f7e0; cursor: pointer; }
+        .card button { background-color: #2d6a4f; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; }
+        .card button:hover { background-color: #1b4332; }
+
+        a { display: block; text-align: center; margin: 20px; text-decoration: none; color: #2d6a4f; font-weight: bold; }
+    </style>
+</head>
+
+<body>
+
+<h1>🌿 Destinos Recomendados</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Destino</th>
+            <th>Província</th>
+            <th>Ecossistema</th>
+            <th>Custo Médio</th>
+            <th>Impacto Ambiental</th>
+            <th>Visitantes Anuais</th>
+            <th>Distância (km)</th>
+            <th>Tags</th>
+            <th>Similaridade</th>
+            <th>Pontuação</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for r in resultados %}
+        {% if r.Distancia_km <= 50 %}
+            {% set distancia_class='perto' %}
+        {% elif r.Distancia_km <=150 %}
+            {% set distancia_class='medio' %}
+        {% else %}
+            {% set distancia_class='longe' %}
+        {% endif %}
+        <tr class="{{ distancia_class }}">
+            <td>{{ r.Nome }}</td>
+            <td>{{ r.Provincia }}</td>
+            <td>{{ r.Tipo_Ecosistema }}</td>
+            <td>{{ r.Custo_Medio }}</td>
+            <td>{{ r.Impacto_Ambiental }}</td>
+            <td>{{ "{:,}".format(r.Visitantes_Anuais) }}</td>
+            <td>{{ "%.1f"|format(r.Distancia_km) }}</td>
+            <td>{% for tag in r.Tags.split(",") %}<span class="tag">{{ tag.strip() }}</span>{% endfor %}</td>
+            <td>{{ "%.2f"|format(r.Similaridade) }}</td>
+            <td>{{ "%.2f"|format(r.Pontuacao) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div class="segunda-opiniao">
+    <h2>Precisa de ajuda para decidir?</h2>
+    <div class="categorias">
+        <!-- Adicione aqui as categorias que deseja -->
+        <button data-categoria="trilha">Trilha</button>
+        <button data-categoria="praia">Praia</button>
+        <button data-categoria="safari">Safari</button>
+        <button data-categoria="cultural">Cultural</button>
     </div>
+    <div id="cardsContainer"></div>
+</div>
+
+<a href="/">🔙 Voltar</a>
+
+<script>
+    const resultadosData = {{ resultados | tojson | safe }};
+    const destinosRecomendados = resultadosData.map(r => r.Nome);
+
+    document.querySelectorAll(".categorias button").forEach(btn => {
+        btn.addEventListener("click", async () => {
+            const categoriaEscolhida = btn.getAttribute("data-categoria");
+            const lat = sessionStorage.getItem("latitude") || -9.5;
+            const lon = sessionStorage.getItem("longitude") || 13.2;
+
+            const response = await fetch("/segunda_opiniao", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ categoria: categoriaEscolhida, latitude: lat, longitude: lon, destinos: destinosRecomendados })
+            });
+
+            const data = await response.json();
+            const container = document.getElementById("cardsContainer");
+            container.innerHTML = "";
+
+            // Exibe os resultados em cards
+            data.sugestao.split("<br>").forEach(s => {
+                if(s.trim()==="") return;
+                const card = document.createElement("div");
+                card.className = "card";
+                card.innerHTML = `<span>${s}</span> <button onclick="alert('Destino selecionado!')">Escolher</button>`;
+                container.appendChild(card);
+            });
+        });
+    });
+</script>
+
 </body>
 </html>

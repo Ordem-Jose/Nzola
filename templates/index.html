@@ -2,22 +2,76 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <title>Nzola 🌿 | Turismo Sustentável</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <title>Nzola - Recomendações</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eaf4ea; margin: 0; padding: 0; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
+        .container { background-color: #fff; padding: 30px 40px; margin-top: 50px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1); width: 400px; text-align: center; }
+        h1 { color: #2d6a4f; margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; text-align: left; }
+        input[type="text"] { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; }
+        button { padding: 10px 20px; background-color: #2d6a4f; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; transition: background-color 0.3s; }
+        button:hover { background-color: #1b4332; }
+        #status { margin-bottom: 15px; font-size: 0.95em; color: #1b4332; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>🌍 Plataforma Nzola</h1>
-        <h2>Turismo Sustentável e Monitoramento Ambiental</h2>
-        <form action="/recomendar" method="post">
-            <label>As tuas preferências (ex: ecoturismo, natureza, praia):</label>
-            <input type="text" name="preferencias" required>
+        <h1>🌿 Descubra destinos em Angola!</h1>
+        <p id="status">Obtendo sua localização...</p>
+        <form method="POST" id="formulario" style="display:none;">
+            <label>Preferências (ex: safari, praia, trilha):</label>
+            <input type="text" name="preferencias" id="preferencias" required>
 
-            <label>Impacto ambiental máximo permitido (0 - 5):</label>
-            <input type="number" step="0.1" name="max_impacto" value="3.0">
+            <input type="hidden" id="latitude" name="latitude">
+            <input type="hidden" id="longitude" name="longitude">
 
-            <button type="submit">Obter Recomendações</button>
+            <button type="submit">Ver Recomendações</button>
         </form>
     </div>
+
+    <script>
+    async function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(async function(position) {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+                document.getElementById("latitude").value = lat;
+                document.getElementById("longitude").value = lon;
+
+                // Armazena para acesso posterior
+                sessionStorage.setItem("latitude", lat);
+                sessionStorage.setItem("longitude", lon);
+
+                try {
+                    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+                    const data = await response.json();
+                    const provincia = data.address.state || "Província não encontrada";
+                    const bairro = data.address.suburb || data.address.neighbourhood || "Bairro não encontrado";
+                    document.getElementById("status").textContent = `Localização obtida com sucesso! ${provincia}, ${bairro}`;
+                } catch (err) {
+                    document.getElementById("status").textContent = "Localização obtida, mas não foi possível identificar bairro/província.";
+                }
+
+                document.getElementById("formulario").style.display = "block";
+            }, function(error) {
+                document.getElementById("status").textContent = "Não foi possível obter a localização. Valores padrão de Luanda serão usados.";
+                document.getElementById("latitude").value = -9.5;
+                document.getElementById("longitude").value = 13.2;
+                sessionStorage.setItem("latitude", -9.5);
+                sessionStorage.setItem("longitude", 13.2);
+                document.getElementById("formulario").style.display = "block";
+            });
+        } else {
+            document.getElementById("status").textContent = "Seu navegador não suporta geolocalização. Valores padrão de Luanda serão usados.";
+            document.getElementById("latitude").value = -9.5;
+            document.getElementById("longitude").value = 13.2;
+            sessionStorage.setItem("latitude", -9.5);
+            sessionStorage.setItem("longitude", 13.2);
+            document.getElementById("formulario").style.display = "block";
+        }
+    }
+
+    getLocation();
+    </script>
 </body>
 </html>

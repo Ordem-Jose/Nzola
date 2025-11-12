@@ -1,0 +1,36 @@
+Nomes de destinos turísticos;Província;Tipo_Ecosistema;Custo_Medio;Impacto_Ambiental;Visitantes_Anuais;Tags;Latitude;Longitude;Fonte
+Parque Nacional da Quiçama;"Luanda;";Savana;"Baixo;";Medio;45000;ecoturismo, proximo a luanda, rio cuanza, elefantes, girafas, zebras, aves, vida selvagem, conservacao;9.2314;13.3035;INBAC, PDFs, Pesquisa Web
+Parque Nacional do Iona;Namibe;Deserto;"Alto;";"Alto;";34000;deserto do namibe, welwitschia, dunas, paisagem, remoto, aventura, fauna endemica, conservacao, girafa angolana, orix;16.3628;12.2547;INBAC, PDFs, Pesquisa Web
+Parque Nacional de Cangandala;Malanje;Savana;Medio;Alto;3000;palanca negra gigante, endemico, conservacao, raro, vida selvagem, aves, savana;-9.8351;17.0625;INBAC, PDFs, Pesquisa Web
+Parque Nacional do Bicuar;Huíla;Savana;Medio;Medio;5000;elefantes, bufalos, leopardos, savana arborizada, ecoturismo, vida selvagem, aves; - 14.9333;15.2500;INBAC, PDFs, Pesquisa Web
+Parque Nacional da Cameia;Moxico;"Planicie Alagada;";Medio;Medio;2000;zonas humidas, aves migratorias, planicies, rios, ecoturismo, hipopotamos;-11.5833;20.7500;INBAC, PDFs, Pesquisa Web
+Parque Nacional do Luengue-Luiana;Cuando Cubango;Floresta;Alto;Medio;N/A;KAZA, transfronteirico, elefantes, leoes, hipopotamos, remoto, aventura, safari;"17.2500;";21.5000;INBAC, PDFs, Pesquisa Web
+Parque Nacional da Mupa;Cunene;Savana;Medio;Medio;N/A;girafas, avestruzes, vida selvagem, savana, ecoturismo;-16.2500;15.0000;INBAC, PDFs, Pesquisa Web
+Cataratas de Kalandula;"Malanje;";Marco Geografico;"Baixo;";"Baixo;";30000;cascatas, quedas de agua, rio lucala, paisagem, fotografia, maravilha natural, turismo rural;"9.0744;";15.9986;Pesquisa Web, Turismo Local
+Fendas da Tundavala;Huíla;Marco Geografico;Baixo;Baixo;70000;miradouro, escarpa, paisagem, montanha, serra da leba, geologia, por do sol, fotografia, caminhada;14.8961;13.4005;Pesquisa Web, Turismo Local
+Miradouro da Lua;Luanda;Marco Geografico;Baixo;Baixo;90000;paisagem lunar, falesias, geologia, fotografia, proximo a luanda, por do sol, costa;-9.3667;13.4333;Pesquisa Web, Turismo Local
+Serra da Leba;Huíla;Marco Geografico;Baixo;Baixo;65000;estrada, arquitetura, paisagem, montanha, miradouro, conducao cénica, fotografia;-15.0833;13.2333;Pesquisa Web, Turismo Local
+Ilha do Mussulo;Luanda;Costeiro;Medio;Medio;120000;praia, ilha, relaxamento, desportos aquaticos, coqueiros, restaurantes, luanda, baia;-8.9767;13.0509;Pesquisa Web, Turismo Local
+Cabo Ledo;Luanda;Costeiro;Baixo;Medio;40000;praia, surf, relaxamento, aldeia piscatória, ecoturismo, proximo a luanda, natureza;-9.6644;13.2013;Pesquisa Web, Turismo Local
+Baía Azul;"Benguela;";Costeiro;Baixo;Baixo;55000;praia, benguela, aguas calmas, relaxamento, falesias, turismo balnear;-12.6075;13.3361;Pesquisa Web, Turismo Local
+Praia da Morena;Benguela;Costeiro;Baixo;Baixo;60000;praia urbana, benguela, marginal, restaurantes, vida noturna, por do sol;-12.5786;13.3361;Pesquisa Web, Turismo Local
+Praia da Caotinha;Benguela;Costeiro;Baixo;Baixo;25000;praia, formacoes rochosas, grutas, aguas claras, paisagem, benguela;-12.6319;13.3105;Pesquisa Web, Turismo Local
+Ilha dos Tigres;Namibe;Costeiro;Alto;Alto;500;remoto, ilha deserta, aventura, ruinas, cidade fantasma, pesca desportiva, farol;-16.6000;11.7500;Pesquisa Web, Aventura
+Mbanza Kongo;Zaire;Cultural;Medio;Baixo;15000;historia, patrimonio mundial, unesco, reino do kongo, museu, ruinas, cultura, capital antiga;-6.2664;14.2400;Pesquisa Web, UNESCO
+Forte de São Miguel;"Luanda;";Cultural;Baixo;Baixo;80000;historia, fortaleza, museu, luanda, vistas da baia, canhoes, arquitetura militar;-8.8068;13.2265;Pesquisa Web, Turismo Local
+Museu do Dundo;Lunda Norte;Cultural;Baixo;Baixo;12000;museu, antropologia, historia, lunda norte, povo lunda, cultura, arte, diamantes;-7.3800;20.8300;Outros Destinos.pdf
+Quedas do Ruacaná;Cunene;Marco Geografico;Medio;Baixo;7000;cascatas, quedas de agua, cunene, fronteira, namibia, rio cunene, paisagem;" -17.3800;";14.2200;Anuário 20-21.pdf
+Foz do Rio Congo;Zaire;Costeiro;Medio;Medio;10000;rio zaire, foz do rio, mangal, soyo, zaire, encontro das aguas, natureza, paisagem, tartarugas marinhas;6.0750;12.3700;Outros Destinos.pdf
+Praia do Kicombo;Cuanza Sul;Costeiro;Baixo;Baixo;15000;praia, czz, porto amboim, pesca, relaxamento, costa, areia branca;" -11.1300;I15";13.7500;Outros Destinos.pdf
+Praia da Chicucula;Cuanza Sul;Costeiro;Baixo;Baixo;5000;praia, czz, porto amboim, sossego, paisagem, costa;" -11.2000;";13.7800;Outros Destinos.pdf
+Praia de Porto Amboim;Cuanza Sul;Costeiro, Urbano;Baixo;Baixo;20000;"praia urbana, porto amboim, czz, marginal, restaurantes"";-10.7100;13.7500;""Outros Destinos"; -10.7100;13.7500;Outros Destinos.pdf
+Cachoeiras de Bombo;Uige;Marco Geografico;Baixo;Baixo;6000;cascatas, quedas de agua, uige, natureza, paisagem, rio, floresta de cafe; -7.6100;15.0500;Outros Destinos.pdf
+Quedas do Rio Cuito;Bié;Marco Geografico, Fluvial;Baixo;Baixo;4000;cascatas, quedas de agua, bie, rio cuito, natureza, paisagem, kuito; -12.3800;16.9300;Outros Destinos.pdf
+Jardim Botânico de Kilombo;Cuanza Norte;Natureza, Urbano;Baixo;Baixo;3000;jardim botanico, flora, investigacao, cuanza norte, ndalatando, natureza; -9.3000;14.9100;Outros Destinos.pdf
+Parque Nacional de Mavinga;Cuando Cubango;Savana, Floresta;Alto;Alto;1000;KAZA, transfronteirico, vida selvagem, remoto, aventura, cuando cubango, okavango;" -16.0000;";20.0000;Angola recebeu...pdf
+Monumento do Soldado Desconhecido (Saurimo;Lunda Sul;Cultural, Urbano;Baixo;Baixo;9000;monumento, historia, saurimo, lunda sul, cultural, urbano, praça;" -9.6600;";20.3900;Outros Destinos.pdf
+Igreja de Nossa Senhora do Pópulo;Benguela;Cultural, Historico;Baixo;Baixo;20000;igreja, historia, arquitetura, benguela, patrimonio, cultural, religioso;" -12.5700;";13.4000;Anuário 22-23.pdf, Pesquisa Web
+Oásis do Arco;Namibe;Deserto, Marco Geografico;Medio;Medio;5000;oasis, deserto do namibe, formacoes rochosas, arco, paisagem, geologia, fotografia, aventura;15.1700;12.3300;Angola recebeu...pdf, Pesquisa Web
+Forte Roçadas (Xangongo);Cunene;Cultural, Historico;Baixo;Baixo;3000;forte, historia, cunene, xangongo, guerra, monumento, cultural; -16.7400;14.9700;Anuário 20-21.pdf, Pesquisa Web
+Lago Dilolo;Moxico;Lago, Zonas Húmidas;Medio;Medio;2000;lago, moxico, maior lago, natureza, aves, lendas, ecoturismo;" -11.5100;";20.1800;Anuário 20-21.pdf
+Barragem da Laúca;Cuanza Norte;Infraestrutura, Fluvial;Baixo;Baixo;1000;barragem, rio kwanza, engenharia, infraestrutura, cuanza norte, malanje; -9.7400;15.1200;Outros Destinos.pdf, Pesquisa Web

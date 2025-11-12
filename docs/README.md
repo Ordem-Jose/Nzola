@@ -1,39 +1,73 @@
-﻿#  Nzola – Plataforma de Turismo Sustentável e Monitoramento Ambiental
+﻿# 🌍 Projeto Nzola — Plataforma de Turismo Sustentável
 
-O **Nzola** é uma plataforma digital inteligente que promove o turismo sustentável em Angola, conectando turistas, comunidades locais e instituições ambientais.
-
-Usa **Inteligência Artificial (IA)** e **Machine Learning (ML)** para recomendar experiências de viagem sustentáveis, analisar feedbacks de turistas e monitorar impactos ambientais.
-
----
-
-##  Objetivos
-- Promover o turismo responsável e de baixo impacto ecológico.  
-- Apoiar comunidades locais e valorização cultural.  
-- Apoiar governos e ONGs com dados estratégicos.  
-- Contribuir para os **Objetivos de Desenvolvimento Sustentável (ODS)**:  
-  **ODS 8, 11, 12, 13, 15 e 17.**
+## 🧠 Visão Geral
+O **Nzola** é uma plataforma de **turismo sustentável** que utiliza **inteligência artificial e engenharia de dados** para promover práticas responsáveis no setor turístico.  
+O sistema identifica **padrões de sustentabilidade**, **recomenda destinos ecológicos** e **monitora impactos ambientais** com base em dados reais.
 
 ---
 
-## Tecnologias
-React | Node.js | MongoDB | PostgreSQL | TensorFlow | Hugging Face | Streamlit
+## 🚀 Tecnologias Utilizadas
+
+### 🔹 Backend e ETL
+- **Python 3.10+**
+- **Pandas**, **NumPy** — limpeza e transformação de dados
+- **Geopandas**, **Folium** — mapeamento e análise geoespacial
+- **Scikit-learn** — modelos de classificação e predição
+- **Jupyter/Google Colab** — ambiente de desenvolvimento
+- **SQLite / CSV / JSON** — armazenamento e ingestão de dados
+
+### 🔹 Frontend (Apresentação Web)
+- **Streamlit** — visualização interativa dos resultados
+- **Plotly / Folium** — gráficos e mapas dinâmicos
 
 ---
 
-##  Módulos de IA e ML
+## ⚙️ Estrutura do Projeto
 
-| Módulo | Descrição | Técnica | Métricas |
-|--------|------------|----------|-----------|
-| Recomendação de experiências | Sugere destinos sustentáveis | TF-IDF + KNN | Precision@K, Recall@K |
-| Análise de sentimentos | Analisa feedbacks dos turistas | BERT / DistilBERT | F1-score |
-| Monitoramento ambiental | Mede impacto ecológico | Random Forest / CNN | RMSE, IoU |
+Nzola/
+│
+├── data/ # Dados brutos e tratados
+├── notebooks/ # ETL e análises exploratórias
+├── models/ # Modelos treinados (ML)
+├── app/ # Código da interface Streamlit
+├── requirements.txt # Dependências do projeto
+└── README.md # Documentação
 
 ---
 
-## Como começar
-1. Abre a pasta `data/sample/` para ver os exemplos de dados.  
-2. Lê os documentos na pasta `docs/` para entender o projeto.  
-3. (Opcional) Abre os notebooks em `notebooks/` para explorar a parte técnica.
+## 🧩 Pipeline ETL e IA
+1. **Extração:** Coleta de dados reais sobre turismo, clima, transporte e sustentabilidade.  
+2. **Transformação:** Limpeza, normalização e junção das fontes.  
+3. **Análise e ML:** Modelos preditivos classificam destinos quanto ao nível de sustentabilidade.  
+4. **Visualização:** Painéis interativos e mapas com insights e recomendações.  
+
+---
+
+## 🧠 Objetivo Geral
+Promover um ecossistema turístico mais sustentável, apoiando decisões baseadas em dados para reduzir impactos ambientais e valorizar práticas ecológicas.
+
+---
+
+## 🌱 Resultados Esperados
+- Identificação de destinos mais sustentáveis;
+- Recomendação personalizada para viajantes conscientes;
+- Apoio à formulação de políticas públicas e certificações verdes.
+
+---
+
+## 📦 Como Executar
+
+```bash
+# 1. Clonar o repositório
+git clone https://github.com/<usuario>/nzola.git
+cd nzola
+
+# 2. Instalar dependências
+pip install -r requirements.txt
+
+# 3. Executar a aplicação
+streamlit run app/main.py
+
 
 ---
 
