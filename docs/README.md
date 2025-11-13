@@ -10,46 +10,42 @@ O sistema foi desenvolvido no âmbito do **Capstone Final do Bootcamp de Engenha
 ## 🚀 Arquitetura Geral
 Nzola/
 ├── __pycache__/
+│   ├── app.cpython-39.pyc
+│   ├── recomendador.cpython-39.pyc
+│   └── pytorch_recomendador.cpython-39.pyc
+│
 ├── app.py
 ├── recomendador.py
 ├── pytorch_recomendador.py
 ├── csvrapido.py
+├── sentimento_model.python-39.pyc
+├── treinar_modelo.py
+├── vectorizer.pkl
+├── info_modelo.npz
+├── modelo_destinos.pth
+│
 ├── csvs/
 │   ├── destinos.csv
 │   ├── perfil_turista.csv
 │   └── feedback.csv
+│
 ├── templates/
 │   ├── index.html
 │   └── resultados.html
+│
 ├── static/
 │   └── style.css
-└── docs/
-    ├── README.md
-    ├── vision.md
-    ├── Proposta de idea.md
-    ├── Folha tecnica.md
-    └── destinos.csv
-```Nzola/
-├── __pycache__/
-├── app.py
-├── recomendador.py
-├── pytorch_recomendador.py
-├── csvrapido.py
-├── csvs/
+│
+├── docs/
+│   ├── README.md
+│   ├── vision.md
+│   ├── Proposta de idea.md
+│   ├── Folha tecnica.md
 │   ├── destinos.csv
-│   ├── perfil_turista.csv
-│   └── feedback.csv
-├── templates/
-│   ├── index.html
-│   └── resultados.html
-├── static/
-│   └── style.css
-└── docs/
-    ├── README.md
-    ├── vision.md
-    ├── Proposta de idea.md
-    ├── Folha tecnica.md
-    └── destinos.csv
+│   └── destinos_juridicos.csv
+│
+└── Frontier_Tech_Leaders_Program...
+    
 |
  Funcionalidades Principais
 
@@ -132,7 +128,6 @@ Nzola/
 - **Python 3.9+**
 - **VSCode** como IDE principal.
 - Execução local no **Windows 11**
-- Dependências listadas em `requirements.txt`
 
 ---
 
